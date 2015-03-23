@@ -39,7 +39,7 @@ helpers =
 
 Template.registerHelper name, func for own name, func of helpers
 
-UI.registerHelper "pathFor", (path,options) ->
+UI.registerHelper "pathFor", (path, options) ->
   throw new Meteor.Error('no path defined') unless path
   unless options and options instanceof Spacebars.kw
     throw new Error "#{name} options must be key value pair such " +

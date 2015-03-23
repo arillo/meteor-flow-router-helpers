@@ -3,9 +3,9 @@
 Template helpers for meteorhacks:flow-router
 
 - isSubReady
-- pathFor
 - isActivePath
 - isNotActivePath
+- pathFor (still under development)
 
 ### Install
 ```sh
@@ -24,15 +24,6 @@ Checks whether your subscription is ready. If you don't pass a subscription name
 	{{/each}}
 	</ul>
 {{/if}}
-```
-
-### Usage pathFor
-
-Used to build a link to your route.
-
-```html
-<a href="{{pathFor '/post/:id' id=_id}}">Link to post</a>
-<a href="{{pathFor '/post/:id/comments/:cid' id=_id cid=comment._id}}">Link to comment in post</a>
 ```
 
 ### Usage isActivePath
@@ -62,3 +53,13 @@ This helper uses regex which means strings like this will work too.
 * We used [iron-router-active](https://github.com/zimme/meteor-iron-router-active/)
 as an inspiration and refactored it to work with flow-router
 
+
+### Usage pathFor
+
+Used to build a path to your route. (Still in active development)
+We have to consider how to pass queryParameters to the helper.
+
+```html
+<a href="{{pathFor '/post/:id' id=_id}}">Link to post</a>
+<a href="{{pathFor '/post/:id/comments/:cid' id=_id cid=comment._id}}">Link to comment in post</a>
+```
