@@ -5,7 +5,7 @@ Template helpers for meteorhacks:flow-router
 - isSubReady
 - isActivePath
 - isNotActivePath
-- pathFor (still under development)
+- pathFor (Still in development, API can change)
 
 ### Install
 ```sh
@@ -56,10 +56,16 @@ as an inspiration and refactored it to work with flow-router
 
 ### Usage pathFor
 
-Used to build a path to your route. (Still in active development)
+Used to build a path to your route. (Still in development, API can change)
 We have to consider how to pass queryParameters to the helper.
 
 ```html
 <a href="{{pathFor '/post/:id' id=_id}}">Link to post</a>
 <a href="{{pathFor '/post/:id/comments/:cid' id=_id cid=comment._id}}">Link to comment in post</a>
+<a href="{{pathFor '/post/:id/comments/:cid' id=_id cid=comment._id query='back=yes&more=true'}}">Link to comment in post with query params</a>
 ```
+
+TODO: 
+- check for route existence
+- create urlFor
+- create linkTo

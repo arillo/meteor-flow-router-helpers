@@ -1,3 +1,4 @@
+# check if path is active
 isActive = (inverse = false) ->
   name = 'is'
   name = name + 'Not' if inverse
@@ -33,20 +34,31 @@ testExp = (path, exp) ->
   re = new RegExp exp, 'i'
   re.test path
 
+# check for subscription to be ready
+isSubReady = (sub) ->
+  return FlowRouter.subsReady(sub) if sub
+  return FlowRouter.subsReady()
+
+deparam = (queryString) ->
+  obj = {}
+  pairs = queryString.split('&')
+  for i of pairs
+    `i = i`
+    split = pairs[i].split('=')
+    obj[decodeURIComponent(split[0])] = decodeURIComponent(split[1])
+  obj
+
+# return path
+pathFor = (path, view) ->
+  throw new Error('no path defined') unless path
+  query = if view.hash.query then deparam(view.hash.query) else {}
+  FlowRouter.path(path, view.hash, query)
+
 helpers =
   isActivePath: isActive
   isNotActivePath: isActive true
+  isSubReady: isSubReady
+  pathFor: pathFor
 
 Template.registerHelper name, func for own name, func of helpers
 
-UI.registerHelper "pathFor", (path, options) ->
-  throw new Meteor.Error('no path defined') unless path
-  unless options and options instanceof Spacebars.kw
-    throw new Error "#{name} options must be key value pair such " +
-      "as {{#{name} regex='route/path'}}. You passed: " +
-      "#{JSON.stringify view}"
-  FlowRouter.path(path, options.hash)
-
-UI.registerHelper "isSubReady", (sub) ->
-  return FlowRouter.subsReady(sub) if sub
-  return FlowRouter.subsReady()
