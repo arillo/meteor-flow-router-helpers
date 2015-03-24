@@ -2,7 +2,7 @@ Package.describe({
   git: 'https://github.com/arillo/meteor-flow-router-helpers.git',
   name: 'arillo:flow-router-helpers',
   summary: 'Template helpers for meteorhacks:flow-router, isActivePath, isNotActivePath, pathFor, isSubReady',
-  version: '0.1.0'
+  version: '0.1.1'
 });
 
 Package.onUse(function(api) {

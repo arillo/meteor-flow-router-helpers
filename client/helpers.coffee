@@ -55,7 +55,7 @@ pathFor = (path, view) ->
   FlowRouter.path(path, view.hash, query)
 
 helpers =
-  isActivePath: isActive
+  isActivePath: isActive()
   isNotActivePath: isActive true
   isSubReady: isSubReady
   pathFor: pathFor
