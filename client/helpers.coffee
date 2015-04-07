@@ -54,11 +54,16 @@ pathFor = (path, view) ->
   query = if view.hash.query then deparam(view.hash.query) else {}
   FlowRouter.path(path, view.hash, query)
 
+urlFor = (path, view) ->
+  relativePath = pathFor(path, view)
+  Meteor.absoluteUrl(relativePath.substr(1))
+
 helpers =
   isActivePath: isActive()
   isNotActivePath: isActive true
   isSubReady: isSubReady
   pathFor: pathFor
+  urlFor: urlFor
 
 Template.registerHelper name, func for own name, func of helpers
 
