@@ -16,7 +16,7 @@ isActive = (inverse = false) ->
 
     check view.hash, pattern
 
-    controller = FlowRouter.current()
+    controller = FlowRouter.reactiveCurrent()
 
     return false unless controller
 
