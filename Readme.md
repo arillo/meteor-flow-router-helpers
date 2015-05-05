@@ -59,6 +59,8 @@ as an inspiration and refactored it to work with flow-router
 
 Used to build a path to your route. First parameter can be either the path definition or, since version 1.2.0 of flow-router, the name you assigned the route. After that you can pass the params needed to construct the path. Query parameters can be passed with the query parameter.
 
+__Notice:__ To deparameterize the query string we are currently using the not yet official accessor for the query lib in page.js via FlowRouter._qs
+
 ```html
 <a href="{{pathFor '/post/:id' id=_id}}">Link to post</a>
 <a href="{{pathFor 'postRouteName' id=_id}}">Link to post</a>

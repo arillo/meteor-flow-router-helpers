@@ -39,19 +39,10 @@ isSubReady = (sub) ->
   return FlowRouter.subsReady(sub) if sub
   return FlowRouter.subsReady()
 
-deparam = (queryString) ->
-  obj = {}
-  pairs = queryString.split('&')
-  for i of pairs
-    `i = i`
-    split = pairs[i].split('=')
-    obj[decodeURIComponent(split[0])] = decodeURIComponent(split[1])
-  obj
-
 # return path
 pathFor = (path, view) ->
   throw new Error('no path defined') unless path
-  query = if view.hash.query then deparam(view.hash.query) else {}
+  query = if view.hash.query then FlowRouter._qs.parse(view.hash.query) else {}
   FlowRouter.path(path, view.hash, query)
 
 urlFor = (path, view) ->
