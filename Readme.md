@@ -45,12 +45,26 @@ Checks whether your subscription is ready. If you don't pass a subscription name
   </ul>
 </nav>
 ```
+
 This helper uses regex which means strings like this will work too.
+
 ```js
 '^dashboard$' // Exact match for 'dashboard'
 '^product' // Begins with 'product'
 'list$' // Ends with 'list'
 ```
+
+You can also used named routes for isActivePath
+
+```html
+<nav>
+  <ul>
+    <li class="{{isActivePath name='users'}}">...</li>
+    <li class="{{isNotActivePath name='users' className='disabled'}}">...</li>
+  </ul>
+</nav>
+```
+
 * We used [iron-router-active](https://github.com/zimme/meteor-iron-router-active/)
 as an inspiration and refactored it to work with flow-router
 

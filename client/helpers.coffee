@@ -7,29 +7,33 @@ isActive = (inverse = false) ->
   (view) ->
     unless view instanceof Spacebars.kw
       throw new Error "#{name} options must be key value pair such " +
-        "as {{#{name} regex='route/path'}}. You passed: " +
-        "#{JSON.stringify view}"
+        "as {{#{name} regex='route/path'}} or {{#{name} name='routeName'}}. " +
+        "You passed: #{JSON.stringify view}"
 
-    pattern =
-      className: Match.Optional String
-      regex: String
+    if view.hash.regex
+      pattern =
+        className: Match.Optional String
+        regex: String
+    else
+      pattern =
+        className: Match.Optional String
+        name: String
 
     check view.hash, pattern
 
     FlowRouter.watchPathChange()
-
     controller = FlowRouter.current()
-
     return false unless controller
 
-    {className, regex} = view.hash
+    if view.hash.regex
+      {className, regex} = view.hash
+      test = testExp controller.path, regex
+    else
+      {className, name} = view.hash
+      test = controller.route?.name is name
 
     className ?= if inverse then 'disabled' else 'active'
-
-    test = testExp controller.path, regex
-
     test = not test if inverse
-
     if test then className else false
 
 testExp = (path, exp) ->
