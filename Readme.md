@@ -3,10 +3,16 @@
 Template helpers for meteorhacks:flow-router
 
 - isSubReady
-- isActivePath
-- isNotActivePath
 - pathFor
 - urlFor
+
+See [zimme:active-route](https://github.com/zimme/meteor-active-route) for using the following helpers
+
+- isActiveRoute
+- isActivePath
+- isNotActiveRoute
+- isNotActivePath
+
 
 ### Install
 ```sh
@@ -26,48 +32,6 @@ Checks whether your subscription is ready. If you don't pass a subscription name
 	</ul>
 {{/if}}
 ```
-
-### Usage isActivePath
-
-`isActivePath` returns the string `active` or boolean `false` unless you specify `className` then this string is returned instead of `active`.
-
-`isNotActivePath` returns the string `disabled` or boolean `false` unless you specify `className` then this string is returned instead of `disabled`.
-
-```html
-<nav>
-  <ul>
-    <li class="{{isActivePath regex='users' className='on'}}">...</li>
-    <li class="{{isActivePath regex='products'}}">...</li>
-    {{#if isActivePath regex='index'}}
-      <li>...</li>
-    {{/if}}
-    <li class="{{isNotActivePath regex='dashboard'}}">...</li>
-  </ul>
-</nav>
-```
-
-This helper uses regex which means strings like this will work too.
-
-```js
-'^dashboard$' // Exact match for 'dashboard'
-'^product' // Begins with 'product'
-'list$' // Ends with 'list'
-```
-
-You can also used named routes for isActivePath
-
-```html
-<nav>
-  <ul>
-    <li class="{{isActivePath name='users'}}">...</li>
-    <li class="{{isNotActivePath name='users' className='disabled'}}">...</li>
-  </ul>
-</nav>
-```
-
-* We used [iron-router-active](https://github.com/zimme/meteor-iron-router-active/)
-as an inspiration and refactored it to work with flow-router
-
 
 ### Usage pathFor
 
@@ -90,6 +54,3 @@ Same as pathFor, returns absolute URL.
 {{urlFor '/post/:id' id=_id}}
 ```
 
-TODO: 
-- check for route existence
-- create linkTo
