@@ -1,7 +1,7 @@
 Package.describe({
   git: 'https://github.com/arillo/meteor-flow-router-helpers.git',
   name: 'arillo:flow-router-helpers',
-  summary: 'Template helpers for meteorhacks:flow-router, pathFor, urlFor, isSubReady and zimme:active-route helpers',
+  summary: 'Template helpers for flow-router, pathFor, urlFor, isSubReady and zimme:active-route helpers',
   version: '0.2.0'
 });
 
