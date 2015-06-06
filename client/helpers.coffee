@@ -6,6 +6,10 @@ isSubReady = (sub) ->
 # return path
 pathFor = (path, view) ->
   throw new Error('no path defined') unless path
+  if path.hash?.route?
+    view = path
+    path = view.hash.route
+    delete view.hash.route
   query = if view.hash.query then FlowRouter._qs.parse(view.hash.query) else {}
   FlowRouter.path(path, view.hash, query)
 
