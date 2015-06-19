@@ -25,11 +25,11 @@ Checks whether your subscription is ready. If you don't pass a subscription name
 
 ```html
 {{#if isSubReady 'items'}}
-	<ul>
-	{{#each items}}
-		<li>{{title}}</li>
-	{{/each}}
-	</ul>
+  <ul>
+  {{#each items}}
+    <li>{{title}}</li>
+  {{/each}}
+  </ul>
 {{/if}}
 ```
 
@@ -52,5 +52,13 @@ Same as pathFor, returns absolute URL.
 
 ```
 {{urlFor '/post/:id' id=_id}}
+```
+
+### Usage queryParam
+
+Returns the value for a query parameter
+
+```
+<input placeholder="Search" value="{{queryParam 'query'}}">
 ```
 
