@@ -18,9 +18,14 @@ urlFor = (path, view) ->
   relativePath = pathFor(path, view)
   Meteor.absoluteUrl(relativePath.substr(1))
 
+# get query parameter
+queryParam = (key) ->
+  FlowRouter.getQueryParam(key);
+
 helpers =
   isSubReady: isSubReady
   pathFor: pathFor
   urlFor: urlFor
+  queryParam: queryParam
 
 Template.registerHelper name, func for own name, func of helpers
