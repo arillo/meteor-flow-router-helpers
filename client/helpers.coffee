@@ -1,7 +1,10 @@
-# check for subscription to be ready
-isSubReady = (sub) ->
-  return FlowRouter.subsReady(sub) if sub
-  return FlowRouter.subsReady()
+# check for subscriptions to be ready
+subsReady = (subs...) ->
+  return FlowRouter.subsReady() if subs.length is 1
+  subs = subs.slice(0, subs.length - 1)
+  _.reduce subs, (memo, sub) ->
+    memo and FlowRouter.subsReady(sub)
+  , true
 
 # return path
 pathFor = (path, view) ->
@@ -22,10 +25,16 @@ urlFor = (path, view) ->
 queryParam = (key) ->
   FlowRouter.getQueryParam(key);
 
+# deprecated
+isSubReady = (sub) ->  
+  return FlowRouter.subsReady(sub) if sub
+  return FlowRouter.subsReady()
+
 helpers =
-  isSubReady: isSubReady
+  subsReady: subsReady
   pathFor: pathFor
   urlFor: urlFor
   queryParam: queryParam
+  isSubReady: isSubReady
 
 Template.registerHelper name, func for own name, func of helpers

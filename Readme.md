@@ -2,9 +2,10 @@
 
 Template helpers for meteorhacks:flow-router
 
-- isSubReady
+- subsReady
 - pathFor
 - urlFor
+- isSubReady (deprecated)
 
 See [zimme:active-route](https://github.com/zimme/meteor-active-route) for using the following helpers
 
@@ -19,7 +20,27 @@ See [zimme:active-route](https://github.com/zimme/meteor-active-route) for using
 meteor add arillo:flow-router-helpers
 ```
 
-### Usage isSubReady
+
+### Usage subsReady
+
+Checks whether your subscriptions are ready. You can pass multiple subscription names. If you don't pass a subscription name it will check for all subscriptions to be ready.
+
+```html
+{{#if isSubReady 'items' 'posts'}}
+  <ul>
+  {{#each items}}
+    <li>{{title}}</li>
+  {{/each}}
+  </ul>
+  <ul>
+  {{#each posts}}
+    <li>{{title}}</li>
+  {{/each}}
+  </ul>
+{{/if}}
+```
+
+### Usage isSubReady (deprecated)
 
 Checks whether your subscription is ready. If you don't pass a subscription name it will check for all subscriptions.
 
@@ -62,3 +83,6 @@ Returns the value for a query parameter
 <input placeholder="Search" value="{{queryParam 'query'}}">
 ```
 
+## Changelog:
+    
+    0.3.0 - changed isSubReady in favor of subsReady
