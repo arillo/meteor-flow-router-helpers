@@ -26,7 +26,7 @@ meteor add arillo:flow-router-helpers
 Checks whether your subscriptions are ready. You can pass multiple subscription names. If you don't pass a subscription name it will check for all subscriptions to be ready.
 
 ```html
-{{#if isSubReady 'items' 'posts'}}
+{{#if subsReady 'items' 'posts'}}
   <ul>
   {{#each items}}
     <li>{{title}}</li>
