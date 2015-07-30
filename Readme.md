@@ -3,9 +3,10 @@
 Template helpers for meteorhacks:flow-router
 
 - subsReady
+- isSubReady (deprecated)
 - pathFor
 - urlFor
-- isSubReady (deprecated)
+- queryParam
 
 See [zimme:active-route](https://github.com/zimme/meteor-active-route) for using the following helpers
 
