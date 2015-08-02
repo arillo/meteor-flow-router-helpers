@@ -1,6 +1,6 @@
 # Helpers for [FlowRouter](https://github.com/kadirahq/flow-router/)
 
-Template helpers for meteorhacks:flow-router
+Template helpers for kadira:flow-router
 
 - subsReady
 - isSubReady (deprecated)
