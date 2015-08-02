@@ -1,4 +1,4 @@
-# Helpers for [FlowRouter](https://github.com/meteorhacks/flow-router/)
+# Helpers for [FlowRouter](https://github.com/kadirahq/flow-router/)
 
 Template helpers for meteorhacks:flow-router
 
@@ -86,4 +86,5 @@ Returns the value for a query parameter
 
 ## Changelog:
     
+    0.4.0 - updated to use kadira:flow-router
     0.3.0 - changed isSubReady in favor of subsReady

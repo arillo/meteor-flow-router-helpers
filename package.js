@@ -2,7 +2,7 @@ Package.describe({
   git: 'https://github.com/arillo/meteor-flow-router-helpers.git',
   name: 'arillo:flow-router-helpers',
   summary: 'Template helpers for flow-router',
-  version: '0.3.1'
+  version: '0.4.0'
 });
 
 Package.onUse(function(api) {
@@ -16,9 +16,13 @@ Package.onUse(function(api) {
   ]);
 
   api.use([
-    'meteorhacks:flow-router@1.19.0',
-    'zimme:active-route@2.2.0'
+    'zimme:active-route@2.3.0'
   ], ['client', 'server']);
+  
+  api.use([
+    'kadira:flow-router@2.0.0',
+    'meteorhacks:flow-router@1.19.0'
+  ], ['client', 'server'], {weak: true});
 
   api.imply('zimme:active-route', ['client', 'server']);
 
