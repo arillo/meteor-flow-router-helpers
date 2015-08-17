@@ -27,7 +27,7 @@ meteor add arillo:flow-router-helpers
 
 Checks whether your subscriptions are ready. You can pass multiple subscription names. If you don't pass a subscription name it will check for all subscriptions to be ready.
 
-```html
+```handlebars
 {{#if subsReady 'items' 'posts'}}
   <ul>
   {{#each items}}
@@ -46,7 +46,7 @@ Checks whether your subscriptions are ready. You can pass multiple subscription 
 
 Checks whether your subscription is ready. If you don't pass a subscription name it will check for all subscriptions.
 
-```html
+```handlebars
 {{#if isSubReady 'items'}}
   <ul>
   {{#each items}}
@@ -62,7 +62,7 @@ Used to build a path to your route. First parameter can be either the path defin
 
 __Notice:__ To deparameterize the query string we are currently using the not yet official accessor for the query lib in page.js via FlowRouter._qs
 
-```html
+```handlebars
 <a href="{{pathFor '/post/:id' id=_id}}">Link to post</a>
 <a href="{{pathFor 'postRouteName' id=_id}}">Link to post</a>
 <a href="{{pathFor '/post/:id/comments/:cid' id=_id cid=comment._id}}">Link to comment in post</a>
@@ -73,7 +73,7 @@ __Notice:__ To deparameterize the query string we are currently using the not ye
 
 Same as pathFor, returns absolute URL.
 
-```
+```handlebars
 {{urlFor '/post/:id' id=_id}}
 ```
 
@@ -81,7 +81,7 @@ Same as pathFor, returns absolute URL.
 
 Returns the value for a url parameter
 
-```
+```handlebars
 <div>ID of this post is <em>{{param 'id'}}</em></div>
 ```
 
@@ -89,7 +89,7 @@ Returns the value for a url parameter
 
 Returns the value for a query parameter
 
-```
+```handlebars
 <input placeholder="Search" value="{{queryParam 'query'}}">
 ```
 
