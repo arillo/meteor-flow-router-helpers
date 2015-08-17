@@ -6,6 +6,7 @@ Template helpers for kadira:flow-router
 - isSubReady (deprecated)
 - pathFor
 - urlFor
+- param
 - queryParam
 
 See [zimme:active-route](https://github.com/zimme/meteor-active-route) for using the following helpers
@@ -76,6 +77,14 @@ Same as pathFor, returns absolute URL.
 {{urlFor '/post/:id' id=_id}}
 ```
 
+### Usage param
+
+Returns the value for a url parameter
+
+```
+<div>ID of this post is <em>{{param 'id'}}</em></div>
+```
+
 ### Usage queryParam
 
 Returns the value for a query parameter
@@ -86,5 +95,6 @@ Returns the value for a query parameter
 
 ## Changelog:
     
+    0.4.3 - added param helper
     0.4.0 - updated to use kadira:flow-router
     0.3.0 - changed isSubReady in favor of subsReady
