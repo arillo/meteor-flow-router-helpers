@@ -21,7 +21,7 @@ urlFor = (path, view) ->
   relativePath = pathFor(path, view)
   Meteor.absoluteUrl(relativePath.substr(1))
 
-# get query parameter
+# get parameter
 param = (name) ->
   FlowRouter.getParam(name);
 
