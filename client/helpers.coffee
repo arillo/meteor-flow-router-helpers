@@ -29,8 +29,12 @@ param = (name) ->
 queryParam = (key) ->
   FlowRouter.getQueryParam(key);
 
+# get current route name
+currentRoute = () ->
+  FlowRouter.getRouteName()
+
 # deprecated
-isSubReady = (sub) ->  
+isSubReady = (sub) ->
   return FlowRouter.subsReady(sub) if sub
   return FlowRouter.subsReady()
 
@@ -41,5 +45,6 @@ helpers =
   param: param
   queryParam: queryParam
   isSubReady: isSubReady
+  currentRoute: currentRoute
 
 Template.registerHelper name, func for own name, func of helpers
