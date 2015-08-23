@@ -8,6 +8,7 @@ Template helpers for kadira:flow-router
 - urlFor
 - param
 - queryParam
+- currentRouteName
 
 See [zimme:active-route](https://github.com/zimme/meteor-active-route) for using the following helpers
 
@@ -93,8 +94,18 @@ Returns the value for a query parameter
 <input placeholder="Search" value="{{queryParam 'query'}}">
 ```
 
+### Usage currentRouteName
+
+Returns the name of the current route
+
+```handlebars
+<div class={{currentRouteName}}>
+  ...
+</div>
+```
+
 ## Changelog:
-    
+    0.4.4 - added currentRouteName helper
     0.4.3 - added param helper
     0.4.0 - updated to use kadira:flow-router
     0.3.0 - changed isSubReady in favor of subsReady

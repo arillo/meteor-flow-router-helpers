@@ -9,6 +9,7 @@ subsReady = (subs...) ->
 # return path
 pathFor = (path, view) ->
   throw new Error('no path defined') unless path
+  console.log path,view
   if path.hash?.route?
     view = path
     path = view.hash.route
@@ -28,6 +29,10 @@ param = (name) ->
 # get query parameter
 queryParam = (key) ->
   FlowRouter.getQueryParam(key);
+
+# get current route name
+currentRouteName = () ->
+  FlowRouter.getRouteName()
 
 # deprecated
 isSubReady = (sub) ->  
