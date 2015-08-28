@@ -44,6 +44,7 @@ helpers =
   urlFor: urlFor
   param: param
   queryParam: queryParam
+  currentRouteName: currentRouteName
   isSubReady: isSubReady
 
 Template.registerHelper name, func for own name, func of helpers
