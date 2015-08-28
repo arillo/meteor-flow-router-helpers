@@ -2,7 +2,7 @@ Package.describe({
   git: 'https://github.com/arillo/meteor-flow-router-helpers.git',
   name: 'arillo:flow-router-helpers',
   summary: 'Template helpers for flow-router',
-  version: '0.4.4_1'
+  version: '0.4.5'
 });
 
 Package.onUse(function(api) {
