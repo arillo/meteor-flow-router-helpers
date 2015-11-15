@@ -105,6 +105,7 @@ Returns the name of the current route
 ```
 
 ## Changelog:
+    0.4.6 - Add hashbang option to pathFor
     0.4.4 - added currentRouteName helper
     0.4.3 - added param helper
     0.4.0 - updated to use kadira:flow-router
