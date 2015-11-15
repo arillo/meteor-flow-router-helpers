@@ -14,7 +14,8 @@ pathFor = (path, view) ->
     path = view.hash.route
     delete view.hash.route
   query = if view.hash.query then FlowRouter._qs.parse(view.hash.query) else {}
-  FlowRouter.path(path, view.hash, query)
+  hashBang = if view.hash.hash then view.hash.hash else ''
+  FlowRouter.path(path, view.hash, query) + hashBang
 
 # return absolute url
 urlFor = (path, view) ->
@@ -34,7 +35,7 @@ currentRouteName = () ->
   FlowRouter.getRouteName()
 
 # deprecated
-isSubReady = (sub) ->  
+isSubReady = (sub) ->
   return FlowRouter.subsReady(sub) if sub
   return FlowRouter.subsReady()
 
