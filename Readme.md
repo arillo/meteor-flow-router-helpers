@@ -26,7 +26,18 @@ meteor add arillo:flow-router-helpers
 
 ### Usage subsReady
 
-Checks whether your subscriptions are ready. You can pass multiple subscription names. If you don't pass a subscription name it will check for all subscriptions to be ready.
+If you call subsReady without parameters it will check for all flow-router subscriptions to be ready. (It will not take into account the template level subscriptions you define)
+
+If you pass parameters it will just check for this specific flow-router subscriptions to be ready. The parameters would be the subscription names you used when registering them on FlowRouter, like:
+
+```js
+FlowRouter.route('/posts', {
+    subscriptions: function(params, queryParams) {
+        this.register('posts', Meteor.subscribe('posts'));
+        this.register('items', Meteor.subscribe('items'));
+    }
+});
+```
 
 ```handlebars
 {{#if subsReady 'items' 'posts'}}
@@ -42,6 +53,7 @@ Checks whether your subscriptions are ready. You can pass multiple subscription 
   </ul>
 {{/if}}
 ```
+
 
 ### Usage isSubReady (deprecated)
 
