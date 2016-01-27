@@ -32,10 +32,10 @@ meteor add arillo:flow-router-helpers
 ```
 
 ### Demo
-https://flowrouterhelpers.meteor.com
+[https://flowrouterhelpers.meteor.com](https://flowrouterhelpers.meteor.com)
 
 ### Examples
-https://github.com/arillo/meteor-flow-router-helpers-example
+[https://github.com/arillo/meteor-flow-router-helpers-example](https://github.com/arillo/meteor-flow-router-helpers-example)
 
 ### Usage subsReady
 
