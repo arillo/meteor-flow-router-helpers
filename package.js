@@ -2,7 +2,7 @@ Package.describe({
   git: 'https://github.com/arillo/meteor-flow-router-helpers.git',
   name: 'arillo:flow-router-helpers',
   summary: 'Template helpers for flow-router',
-  version: '0.4.7'
+  version: '0.5.0'
 });
 
 Package.onUse(function(api) {
@@ -26,5 +26,13 @@ Package.onUse(function(api) {
 
   api.imply('zimme:active-route', ['client', 'server']);
 
-  api.addFiles('client/helpers.coffee', 'client');
+  api.addFiles([
+    'client/helpers.html'
+  ], ['client']);
+
+  api.addFiles([
+    'client/helpers.coffee'
+  ], ['client', 'server']);
+
+  api.export('FlowRouterHelpers', 'server');
 });

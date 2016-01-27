@@ -7,8 +7,10 @@ subsReady = (subs...) ->
   , true
 
 # return path
-pathFor = (path, view) ->
+pathFor = (path, view = {hash:{}}) ->
   throw new Error('no path defined') unless path
+  # set if run on server
+  view = hash: view unless view.hash
   if path.hash?.route?
     view = path
     path = view.hash.route
@@ -48,4 +50,10 @@ helpers =
   currentRouteName: currentRouteName
   isSubReady: isSubReady
 
-Template.registerHelper name, func for own name, func of helpers
+if Meteor.isClient
+  Template.registerHelper name, func for own name, func of helpers
+  
+if Meteor.isServer
+  FlowRouterHelpers = 
+    pathFor: pathFor
+    urlFor: urlFor

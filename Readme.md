@@ -10,6 +10,10 @@ Template helpers for kadira:flow-router
 - queryParam
 - currentRouteName
 
+Content blocks
+
+- linkTo
+
 See [zimme:active-route](https://github.com/zimme/meteor-active-route) for using the following helpers
 
 - isActiveRoute
@@ -17,12 +21,21 @@ See [zimme:active-route](https://github.com/zimme/meteor-active-route) for using
 - isNotActiveRoute
 - isNotActivePath
 
+On the server it exports FlowRouterHelpers, with:
+
+- urlFor
+- pathFor
 
 ### Install
 ```sh
 meteor add arillo:flow-router-helpers
 ```
 
+### Demo
+https://flowrouterhelpers.meteor.com
+
+### Examples
+https://github.com/arillo/meteor-flow-router-helpers-example
 
 ### Usage subsReady
 
@@ -82,6 +95,10 @@ __Notice:__ To deparameterize the query string we are currently using the not ye
 <a href="{{pathFor '/post/:id/comments/:cid' id=_id cid=comment._id query='back=yes&more=true'}}">Link to comment in post with query params</a>
 ```
 
+Server side it can be used like this:
+```FlowRouterHelpers.pathFor('/post/:id',{ id:'12345' })```
+
+
 ### Usage urlFor
 
 Same as pathFor, returns absolute URL.
@@ -89,6 +106,18 @@ Same as pathFor, returns absolute URL.
 ```handlebars
 {{urlFor '/post/:id' id=_id}}
 ```
+
+### Usage linkTo
+
+Custom content block for creating a link
+
+```handlebars
+{{#linkTo '/posts/'}}
+  Go to posts
+{{/linkTo}}
+```
+
+will return ```<a href="/posts/">Go to posts</a>```
 
 ### Usage param
 
@@ -117,6 +146,7 @@ Returns the name of the current route
 ```
 
 ## Changelog:
+    0.5.0 - Add linkTo custom content block. Allow use of pathFor & urlFor on the server
     0.4.6 - Add hashbang option to pathFor
     0.4.4 - added currentRouteName helper
     0.4.3 - added param helper
