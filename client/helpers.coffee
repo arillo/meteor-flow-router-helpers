@@ -17,7 +17,7 @@ pathFor = (path, view = {hash:{}}) ->
     delete view.hash.route
   query = if view.hash.query then FlowRouter._qs.parse(view.hash.query) else {}
   hashBang = if view.hash.hash then view.hash.hash else ''
-  FlowRouter.path(path, view.hash, query) + (if hashBang then "##{hashbang}" else '')
+  FlowRouter.path(path, view.hash, query) + (if hashBang then "##{hashBang}" else '')
 
 # return absolute url
 urlFor = (path, view) ->
