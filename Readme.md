@@ -9,6 +9,7 @@ Template helpers for kadira:flow-router
 - param
 - queryParam
 - currentRouteName
+- currentRouteOption
 
 Content blocks
 
@@ -141,6 +142,15 @@ Returns the name of the current route
 
 ```handlebars
 <div class={{currentRouteName}}>
+  ...
+</div>
+```
+### Usage currentRouteOption
+
+Returns the name of the current route
+
+```handlebars
+<div class={{currentRouteOption 'customRouteOption'}}>
   ...
 </div>
 ```
