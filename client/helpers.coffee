@@ -36,6 +36,10 @@ queryParam = (key) ->
 currentRouteName = () ->
   FlowRouter.getRouteName()
 
+# get current route options
+currentRouteOption = (optionName) ->
+  FlowRouter.current().route.options[optionName]
+
 # deprecated
 isSubReady = (sub) ->
   return FlowRouter.subsReady(sub) if sub
@@ -49,6 +53,7 @@ helpers =
   queryParam: queryParam
   currentRouteName: currentRouteName
   isSubReady: isSubReady
+  currentRouteOption: currentRouteOption
 
 if Meteor.isClient
   Template.registerHelper name, func for own name, func of helpers
