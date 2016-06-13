@@ -147,7 +147,17 @@ Returns the name of the current route
 ```
 ### Usage currentRouteOption
 
-Returns the name of the current route
+This adds support to get options from flow router
+
+```javascript
+FlowRouter.route("name", {
+  name: "yourRouteName",
+  action() {
+    BlazeLayout.render("layoutTemplate", {main: "main"});
+  },
+  coolOption: "coolOptionValue"
+});
+```
 
 ```handlebars
 <div class={{currentRouteOption 'customRouteOption'}}>
@@ -156,6 +166,7 @@ Returns the name of the current route
 ```
 
 ## Changelog:
+    0.5.2 - Add currentRouteOption
     0.5.0 - Add linkTo custom content block. Allow use of pathFor & urlFor on the server
     0.4.6 - Add hashbang option to pathFor
     0.4.4 - added currentRouteName helper
