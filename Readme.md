@@ -1,5 +1,7 @@
 # Helpers for [FlowRouter](https://github.com/kadirahq/flow-router/)
 
+THIS PROJECT IS DEPRECATING and not mantained anymore. If you are interested in mainting it just send us an e-mail.
+
 Template helpers for kadira:flow-router
 
 - subsReady
